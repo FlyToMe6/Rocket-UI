@@ -49,10 +49,28 @@ border-radius: 5px;</string>
         </property>
         <layout class="QGridLayout" name="gridLayout_2">
          <property name="leftMargin">
-          <number>25</number>
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="horizontalSpacing">
+          <number>0</number>
          </property>
          <item row="0" column="1">
           <widget class="QFrame" name="frame_4">
+           <property name="minimumSize">
+            <size>
+             <width>370</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>311</width>
+             <height>16777215</height>
+            </size>
+           </property>
            <property name="styleSheet">
             <string notr="true">left: 24;
 right: 29;
@@ -71,8 +89,17 @@ border-radius: 5px;</string>
             <enum>QFrame::Raised</enum>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_3">
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
             <item>
              <widget class="QFrame" name="frame_12">
+              <property name="styleSheet">
+               <string notr="true">border: one;</string>
+              </property>
               <property name="frameShape">
                <enum>QFrame::StyledPanel</enum>
               </property>
@@ -92,6 +119,9 @@ border-radius: 5px;</string>
             </item>
             <item>
              <widget class="QFrame" name="frame_13">
+              <property name="styleSheet">
+               <string notr="true">border: one;</string>
+              </property>
               <property name="frameShape">
                <enum>QFrame::StyledPanel</enum>
               </property>
@@ -118,6 +148,9 @@ border-radius: 5px;</string>
             </item>
             <item>
              <widget class="QFrame" name="frame_15">
+              <property name="styleSheet">
+               <string notr="true">border: one;</string>
+              </property>
               <property name="frameShape">
                <enum>QFrame::StyledPanel</enum>
               </property>
@@ -126,37 +159,128 @@ border-radius: 5px;</string>
               </property>
               <layout class="QGridLayout" name="gridLayout_5">
                <item row="0" column="0">
-                <widget class="QTextBrowser" name="textBrowser"/>
+                <widget class="QTextBrowser" name="textBrowser">
+                 <property name="minimumSize">
+                  <size>
+                   <width>345</width>
+                   <height>600</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>345</width>
+                   <height>700</height>
+                  </size>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">background-color: #0263BC;
+color: #ffffff;</string>
+                 </property>
+                </widget>
                </item>
               </layout>
              </widget>
             </item>
             <item>
              <widget class="QFrame" name="frame_14">
+              <property name="layoutDirection">
+               <enum>Qt::LeftToRight</enum>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">border: one;</string>
+              </property>
               <property name="frameShape">
                <enum>QFrame::StyledPanel</enum>
               </property>
               <property name="frameShadow">
                <enum>QFrame::Raised</enum>
               </property>
-              <layout class="QGridLayout" name="gridLayout_6">
-               <item row="0" column="0">
-                <layout class="QVBoxLayout" name="verticalLayout_5">
-                 <item>
-                  <widget class="QPushButton" name="pushButton_2">
-                   <property name="text">
-                    <string>PushButton</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QPushButton" name="pushButton">
-                   <property name="text">
-                    <string>PushButton</string>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
+              <layout class="QHBoxLayout" name="horizontalLayout_2">
+               <item>
+                <widget class="QPushButton" name="pushButton">
+                 <property name="minimumSize">
+                  <size>
+                   <width>157</width>
+                   <height>56</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>157</width>
+                   <height>56</height>
+                  </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <pointsize>12</pointsize>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">
+QPushButton{
+color: #ffffff;
+box-shadow: 0px 0px 0px 2px #9fb4f2;
+background-color: rgb(14, 63, 89);
+border: 1px solid #000000;
+box-sizing: border-box;
+border-radius: 10px;
+}
+QPushButton:hover{
+background: #0E3C56;
+
+}
+QPushButton:pressed{
+background: rgb(18, 81, 117);
+}
+</string>
+                 </property>
+                 <property name="text">
+                  <string>Отобразить</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="pushButton_2">
+                 <property name="minimumSize">
+                  <size>
+                   <width>157</width>
+                   <height>56</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>157</width>
+                   <height>56</height>
+                  </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <pointsize>12</pointsize>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">
+QPushButton{
+color: #ffffff;
+box-shadow: 0px 0px 0px 2px #9fb4f2;
+background-color: rgb(14, 63, 89);
+border: 1px solid #000000;
+box-sizing: border-box;
+border-radius: 10px;
+}
+QPushButton:hover{
+background: #0E3C56;
+
+}
+QPushButton:pressed{
+background: rgb(18, 81, 117);
+}
+</string>
+                 </property>
+                 <property name="text">
+                  <string>Очистить окно</string>
+                 </property>
+                </widget>
                </item>
               </layout>
              </widget>
@@ -169,6 +293,12 @@ border-radius: 5px;</string>
       </item>
       <item>
        <widget class="QFrame" name="frame_2">
+        <property name="minimumSize">
+         <size>
+          <width>1090</width>
+          <height>900</height>
+         </size>
+        </property>
         <property name="styleSheet">
          <string notr="true">border: none;</string>
         </property>
@@ -179,8 +309,26 @@ border-radius: 5px;</string>
          <enum>QFrame::Raised</enum>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout">
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
          <item>
           <widget class="QFrame" name="frame_5">
+           <property name="minimumSize">
+            <size>
+             <width>1088</width>
+             <height>70</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>1088</width>
+             <height>72</height>
+            </size>
+           </property>
            <property name="styleSheet">
             <string notr="true">left: 90;
 top: 24;
@@ -200,6 +348,20 @@ border-radius: 5px;</string>
            <layout class="QGridLayout" name="gridLayout_3">
             <item row="0" column="0">
              <widget class="QLabel" name="label">
+              <property name="minimumSize">
+               <size>
+                <width>800</width>
+                <height>42</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <pointsize>20</pointsize>
+                <weight>50</weight>
+                <italic>false</italic>
+                <bold>false</bold>
+               </font>
+              </property>
               <property name="styleSheet">
                <string notr="true">
 left: 90;
@@ -207,10 +369,9 @@ right: 90;
 top: 15;
 bottom: 15;
 
-font-family: Roboto;
 font-style: normal;
 font-weight: normal;
-fint-size: 36px;
+fint-size: 24px;
 line-height: 42px;
 
 text-align: center;
@@ -337,11 +498,14 @@ border-radius: 5px;</string>
          <enum>QFrame::Raised</enum>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_2">
+         <property name="topMargin">
+          <number>4</number>
+         </property>
          <item>
           <widget class="QFrame" name="frame_8">
            <property name="minimumSize">
             <size>
-             <width>400</width>
+             <width>350</width>
              <height>284</height>
             </size>
            </property>
@@ -418,14 +582,30 @@ border-bottom-right-radius: 5px;</string>
                   <bool>false</bool>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">
-background: #0E3C56;
+                  <string notr="true">QPushButton{
+font-style: normal;
+font-weight: normal;
+font-size: 42px;
+line-height: 52px;
+text-align: center;
+color: #ffffff;
+box-shadow: 0px 0px 0px 2px #AA2121;
+background-color: rgb(170, 5, 5);
 border: 1px solid #000000;
 box-sizing: border-box;
-border-radius: 75;</string>
+border-radius: 75;
+}
+QPushButton:hover{
+background: rgb(229, 0, 0);
+
+}
+QPushButton:pressed{
+background: #AA2121;
+}
+</string>
                  </property>
                  <property name="text">
-                  <string>PushButton</string>
+                  <string>СТАРТ</string>
                  </property>
                 </widget>
                </item>
@@ -434,6 +614,11 @@ border-radius: 75;</string>
             </item>
             <item>
              <widget class="QFrame" name="frame_11">
+              <property name="font">
+               <font>
+                <pointsize>18</pointsize>
+               </font>
+              </property>
               <property name="styleSheet">
                <string notr="true">border: none;</string>
               </property>
@@ -449,18 +634,37 @@ border-radius: 75;</string>
                  <property name="minimumSize">
                   <size>
                    <width>157</width>
-                   <height>56</height>
+                   <height>60</height>
                   </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <pointsize>12</pointsize>
+                  </font>
                  </property>
                  <property name="styleSheet">
                   <string notr="true">
-background: #0E3C56;
+QPushButton{
+margin-right: 5;
+color: #ffffff;
+box-shadow: 0px 0px 0px 2px #9fb4f2;
+background-color: rgb(14, 63, 89);
 border: 1px solid #000000;
 box-sizing: border-box;
-border-radius: 10px;</string>
+border-radius: 10px;
+}
+QPushButton:hover{
+background: #0E3C56;
+
+}
+QPushButton:pressed{
+background: rgb(18, 81, 117);
+}
+</string>
                  </property>
                  <property name="text">
-                  <string>PushButton</string>
+                  <string>Загрузить
+конфиг</string>
                  </property>
                 </widget>
                </item>
@@ -469,18 +673,37 @@ border-radius: 10px;</string>
                  <property name="minimumSize">
                   <size>
                    <width>157</width>
-                   <height>56</height>
+                   <height>60</height>
                   </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <pointsize>12</pointsize>
+                  </font>
                  </property>
                  <property name="styleSheet">
                   <string notr="true">
-background: #0E3C56;
+QPushButton{
+margin-left: 5;
+color: #ffffff;
+box-shadow: 0px 0px 0px 2px #9fb4f2;
+background-color: rgb(14, 63, 89);
 border: 1px solid #000000;
 box-sizing: border-box;
-border-radius: 10px;</string>
+border-radius: 10px;
+}
+QPushButton:hover{
+background: #0E3C56;
+
+}
+QPushButton:pressed{
+background: rgb(18, 81, 117);
+}
+</string>
                  </property>
                  <property name="text">
-                  <string>PushButton</string>
+                  <string>Отобразить
+лог файл</string>
                  </property>
                 </widget>
                </item>
@@ -492,6 +715,18 @@ border-radius: 10px;</string>
          </item>
          <item>
           <widget class="QFrame" name="frame_9">
+           <property name="minimumSize">
+            <size>
+             <width>350</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>400</width>
+             <height>16777215</height>
+            </size>
+           </property>
            <property name="styleSheet">
             <string notr="true">left: 24;
 top: 24;
