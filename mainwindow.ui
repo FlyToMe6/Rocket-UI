@@ -535,7 +535,7 @@ background: #040f34;
 }</string>
               </property>
               <property name="currentIndex">
-               <number>0</number>
+               <number>3</number>
               </property>
               <widget class="QWidget" name="tab">
                <property name="styleSheet">
@@ -545,6 +545,26 @@ border: none;</string>
                <attribute name="title">
                 <string>Углы</string>
                </attribute>
+               <layout class="QGridLayout" name="gridLayout_10">
+                <property name="leftMargin">
+                 <number>11</number>
+                </property>
+                <property name="topMargin">
+                 <number>11</number>
+                </property>
+                <property name="rightMargin">
+                 <number>11</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>11</number>
+                </property>
+                <property name="spacing">
+                 <number>7</number>
+                </property>
+                <item row="0" column="0">
+                 <widget class="QCustomPlot" name="anglesPlot" native="true"/>
+                </item>
+               </layout>
               </widget>
               <widget class="QWidget" name="tab_2">
                <property name="styleSheet">
@@ -554,6 +574,11 @@ border: none;</string>
                <attribute name="title">
                 <string>Ускорения</string>
                </attribute>
+               <layout class="QGridLayout" name="gridLayout_11">
+                <item row="0" column="0">
+                 <widget class="QCustomPlot" name="axelerationsPlot" native="true"/>
+                </item>
+               </layout>
               </widget>
               <widget class="QWidget" name="tab_5">
                <property name="styleSheet">
@@ -564,6 +589,11 @@ border: none;
                <attribute name="title">
                 <string>Скорости</string>
                </attribute>
+               <layout class="QGridLayout" name="gridLayout_12">
+                <item row="0" column="0">
+                 <widget class="QCustomPlot" name="speedsPlot" native="true"/>
+                </item>
+               </layout>
               </widget>
               <widget class="QWidget" name="tab_6">
                <property name="styleSheet">
@@ -574,6 +604,11 @@ border: none;
                <attribute name="title">
                 <string>Тяга</string>
                </attribute>
+               <layout class="QGridLayout" name="gridLayout_13">
+                <item row="0" column="0">
+                 <widget class="QCustomPlot" name="thrustPlot" native="true"/>
+                </item>
+               </layout>
               </widget>
               <widget class="QWidget" name="tab_7">
                <property name="styleSheet">
@@ -584,6 +619,11 @@ border: none;
                <attribute name="title">
                 <string>Управление</string>
                </attribute>
+               <layout class="QGridLayout" name="gridLayout_14">
+                <item row="0" column="0">
+                 <widget class="QCustomPlot" name="controlsPlot" native="true"/>
+                </item>
+               </layout>
               </widget>
              </widget>
             </item>
@@ -1944,6 +1984,14 @@ color: #BB1010;
    </layout>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QCustomPlot</class>
+   <extends>QWidget</extends>
+   <header location="global">qcustomplot.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
