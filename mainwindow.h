@@ -5,6 +5,7 @@
 #include <QVector>
 #include <QTimer>
 #include <QtMath>
+#include <qmlrocketwindow.h>
 
 
 QT_BEGIN_NAMESPACE
@@ -19,8 +20,12 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void on_pushButton_5_clicked();
+
 private:
     Ui::MainWindow *ui;
+    qmlRocketWindow rocketWindow;
     QCustomPlot *wGraphic;      // Объявляем объект QCustomPlot
     QCPCurve *verticalLine;     // Объявляем объект для вертикальной линии
     QCPItemTracer *tracer;      // Трасировщик по точкам графика

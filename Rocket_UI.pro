@@ -1,4 +1,4 @@
-QT       += core gui printsupport
+QT       += quick quick3d core gui printsupport quickwidgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -11,16 +11,22 @@ CONFIG += c++11
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    qcustomplot.cpp
+    qcustomplot.cpp \
+    qmlrocketwindow.cpp
 
 HEADERS += \
     mainwindow.h \
-    qcustomplot.h
+    qcustomplot.h \
+    qmlrocketwindow.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    qmlrocketwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    qml.qrc

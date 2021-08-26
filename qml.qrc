@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>rocketWindow.qml</file>
+        <file>rocket.mesh</file>
+    </qresource>
+</RCC>
