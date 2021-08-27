@@ -595,21 +595,6 @@ border: none;
                 </item>
                </layout>
               </widget>
-              <widget class="QWidget" name="tab_6">
-               <property name="styleSheet">
-                <string notr="true">background: #125175;
-border: none;
-</string>
-               </property>
-               <attribute name="title">
-                <string>Тяга</string>
-               </attribute>
-               <layout class="QGridLayout" name="gridLayout_13">
-                <item row="0" column="0">
-                 <widget class="QCustomPlot" name="thrustPlot" native="true"/>
-                </item>
-               </layout>
-              </widget>
               <widget class="QWidget" name="tab_7">
                <property name="styleSheet">
                 <string notr="true">background: #125175;
@@ -1552,6 +1537,9 @@ border-radius: 5px;</string>
             <property name="rightMargin">
              <number>17</number>
             </property>
+            <property name="bottomMargin">
+             <number>17</number>
+            </property>
             <item>
              <widget class="QFrame" name="frame_28">
               <property name="minimumSize">
@@ -1786,7 +1774,7 @@ background: rgb(18, 81, 117);
               <property name="minimumSize">
                <size>
                 <width>320</width>
-                <height>470</height>
+                <height>440</height>
                </size>
               </property>
               <property name="maximumSize">
@@ -1805,6 +1793,42 @@ background: rgb(18, 81, 117);
                <enum>QFrame::Raised</enum>
               </property>
               <layout class="QVBoxLayout" name="verticalLayout_15">
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>20</number>
+               </property>
+               <item>
+                <widget class="QLabel" name="label_14">
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>80</height>
+                  </size>
+                 </property>
+                 <property name="layoutDirection">
+                  <enum>Qt::LeftToRight</enum>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QLabel{
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 28px;
+text-align: center;
+border: none;
+color: #FFFFFF;
+}</string>
+                 </property>
+                 <property name="text">
+                  <string>Начальные значения</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
                <item>
                 <widget class="QFrame" name="frame_32">
                  <property name="styleSheet">
@@ -1817,12 +1841,15 @@ background: rgb(18, 81, 117);
                   <enum>QFrame::Raised</enum>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_12">
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
                   <item>
                    <widget class="QLabel" name="label_8">
                     <property name="styleSheet">
                      <string notr="true">font-style: normal;
 font-weight: normal;
-font-size: 24px;
+font-size: 18px;
 line-height: 28px;
 text-align: center;
 
@@ -1842,7 +1869,7 @@ color: #FFFFFF;</string>
                      <string notr="true">font-family: Roboto;
 font-style: normal;
 font-weight: normal;
-font-size: 48px;
+font-size: 40px;
 line-height: 56px;
 text-align: center;
 
@@ -1872,12 +1899,15 @@ color: #BB1010;
                   <enum>QFrame::Raised</enum>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_14">
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
                   <item>
                    <widget class="QLabel" name="label_12">
                     <property name="styleSheet">
                      <string notr="true">font-style: normal;
 font-weight: normal;
-font-size: 24px;
+font-size: 18px;
 line-height: 28px;
 text-align: center;
 
@@ -1897,7 +1927,7 @@ color: #FFFFFF;</string>
                      <string notr="true">font-family: Roboto;
 font-style: normal;
 font-weight: normal;
-font-size: 48px;
+font-size: 40px;
 line-height: 56px;
 text-align: center;
 
@@ -1927,12 +1957,15 @@ color: #BB1010;
                   <enum>QFrame::Raised</enum>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_13">
+                  <property name="topMargin">
+                   <number>0</number>
+                  </property>
                   <item>
                    <widget class="QLabel" name="label_10">
                     <property name="styleSheet">
                      <string notr="true">font-style: normal;
 font-weight: normal;
-font-size: 24px;
+font-size: 18px;
 line-height: 28px;
 text-align: center;
 
@@ -1952,7 +1985,7 @@ color: #FFFFFF;</string>
                      <string notr="true">font-family: Roboto;
 font-style: normal;
 font-weight: normal;
-font-size: 48px;
+font-size: 40px;
 line-height: 56px;
 text-align: center;
 

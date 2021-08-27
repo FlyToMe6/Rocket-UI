@@ -50,11 +50,14 @@ Item {
         }
     //! [rocket model]
         Model {
+            id: rocket
+            x: 10
             source: "rocket.mesh"
-            eulerRotation.z: 178.99059
-            eulerRotation.y: 174.71434
-            eulerRotation.x: 11.93338
-            y: -100
+            z: 0
+            eulerRotation.z: 180
+            eulerRotation.y: -180
+            eulerRotation.x: 0
+            y: 263.726
             scale: Qt.vector3d(1, 50, 50)
             materials: [
                 DefaultMaterial {
@@ -62,21 +65,38 @@ Item {
                 }
             ]
 
-            NumberAnimation  on eulerRotation.y {
-                loops: Animation.Infinite
-                duration: 5000
-                from: 0
-                to: -360
+        }
+        //! [rocket model]
+        //! [Animation of rocket model]
+SequentialAnimation on y{
+    running: true
+    loops: Animation.Infinite
+    NumberAnimation {target: rocket; property: "eulerRotation.x"; to: 45; duration: 1000; easing.type:  "OutQuad"}
+    NumberAnimation {target: rocket; property: "eulerRotation.x"; to: 0; duration: 1000; easing.type:  "OutQuad"}
+    NumberAnimation {target: rocket; property: "eulerRotation.y"; to: -125; duration: 1000; easing.type:  "OutQuad"}
+    NumberAnimation {target: rocket; property: "eulerRotation.y"; to: -180; duration: 1000; easing.type:  "OutQuad"}
+}
+//! [Animation of rocket model]
+        Model {
+            id: cube
+            source: "#Cube"
+            scale.x: 80.18332
+            scale.z: 44.18978
+            scale.y: 0
+            materials: cubeMaterial
+            DefaultMaterial {
+                id: cubeMaterial
+                diffuseColor: "#4aee45"
             }
         }
- }
+    }
 
-    //! [rocket model]
+
 
 }
 
 /*##^##
 Designer {
-    D{i:0;formeditorZoom:0.66}
+    D{i:0;autoSize:true;formeditorZoom:0.5;height:480;width:640}
 }
 ##^##*/

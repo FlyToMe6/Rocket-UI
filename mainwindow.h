@@ -23,17 +23,36 @@ public:
 private slots:
     void on_pushButton_5_clicked();
 
+    void on_pushButton_4_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_clicked();
+
+    void on_pushButton_3_clicked();
+
+    void on_pushButton_7_clicked();
+
 private:
+
     Ui::MainWindow *ui;
     qmlRocketWindow rocketWindow;
+
+    void loadFile(QString fileType);
+    void startReplot(QString fileLog);
+    void defaultLines(QCustomPlot *Plot);
+    void replotAxis(QCustomPlot *Plot, int graphNumber, QVector<double> T, QVector<double> Y, QString lineColor, bool flag);
+
     QCustomPlot *wGraphic;      // Объявляем объект QCustomPlot
+    QVector<QCustomPlot> Plots;
     QCPCurve *verticalLine;     // Объявляем объект для вертикальной линии
     QCPItemTracer *tracer;      // Трасировщик по точкам графика
     QVector<double> angle_X, angle_Y, angle_Z, T;
     QVector<double> speed_X, speed_Y, speed_Z;
     QVector<double> axeleration_X, axeleration_Y, axeleration_Z;
     QVector<double> control_X, control_Y, control_Z;
-    QVector<double> thrust;
     bool flag;
+
+    QString configFilePath, logFilePath;
 };
 #endif // MAINWINDOW_H
