@@ -26,27 +26,21 @@ Item {
         }
         DirectionalLight {
             id: light1
-            color: Qt.rgba(1.0, 0.1, 0.1, 1.0)
+            x: 178.338
+            y: 61.388
+            color: Qt.rgba(1.0, 1, 1, 1.0)
+            z: -36.7472
+            brightness: 152
+            eulerRotation.z: -1.68426
+            eulerRotation.y: 68.13226
+            eulerRotation.x: -47.10913
             ambientColor: Qt.rgba(0.1, 0.1, 0.1, 1.0)
             position: Qt.vector3d(0, 200, 0)
             rotation: Quaternion.fromEulerAngles(-135, -90, 0)
             shadowMapQuality: Light.ShadowMapQualityHigh
             visible: checkBox1.checked
             castsShadow: checkBoxShadows.checked
-            brightness: slider1.sliderValue
-            SequentialAnimation on rotation {
-                loops: Animation.Infinite
-                QuaternionAnimation {
-                    to: Quaternion.fromEulerAngles(-45, -90, 0)
-                    duration: 2000
-                    easing.type: Easing.InOutQuad
-                }
-                QuaternionAnimation {
-                    to: Quaternion.fromEulerAngles(-135, -90, 0)
-                    duration: 2000
-                    easing.type: Easing.InOutQuad
-                }
-            }
+
         }
     //! [rocket model]
         Model {
@@ -61,7 +55,7 @@ Item {
             scale: Qt.vector3d(1, 50, 50)
             materials: [
                 DefaultMaterial {
-                    diffuseColor: Qt.rgba(0.9, 0.9, 0.9, 1.0)
+                    diffuseColor: "#433434"
                 }
             ]
 
@@ -71,10 +65,15 @@ Item {
 SequentialAnimation on y{
     running: true
     loops: Animation.Infinite
-    NumberAnimation {target: rocket; property: "eulerRotation.x"; to: 45; duration: 1000; easing.type:  "OutQuad"}
-    NumberAnimation {target: rocket; property: "eulerRotation.x"; to: 0; duration: 1000; easing.type:  "OutQuad"}
-    NumberAnimation {target: rocket; property: "eulerRotation.y"; to: -125; duration: 1000; easing.type:  "OutQuad"}
-    NumberAnimation {target: rocket; property: "eulerRotation.y"; to: -180; duration: 1000; easing.type:  "OutQuad"}
+
+    //launch animation
+    NumberAnimation {target: rocket; property: "eulerRotation.x"; to: -4; duration: 1000; easing.type:  "OutQuad"}
+    NumberAnimation {target: rocket; property: "z"; to: -2000; duration: 5000; easing.type:  "OutQuad"}
+
+    //back to state
+    NumberAnimation {target: rocket; property: "eulerRotation.x"; to: 10; duration: 100; easing.type:  "OutQuad"}
+    NumberAnimation {target: rocket; property: "z"; to: 0; duration: 100; easing.type:  "OutQuad"}
+
 }
 //! [Animation of rocket model]
         Model {
@@ -86,17 +85,66 @@ SequentialAnimation on y{
             materials: cubeMaterial
             DefaultMaterial {
                 id: cubeMaterial
-                diffuseColor: "#4aee45"
+                diffuseColor: "#235f20"
             }
         }
+        Model {
+            id: cube1
+            x: -407.978
+            y: 61.254
+            source: "#Cube"
+            scale.z: 1.51799
+            scale.y: 1.74149
+            scale.x: 2.33228
+            z: -161.25679
+            materials: [cubeMaterial1,cubeMaterial]
+            DefaultMaterial {
+                id: cubeMaterial1
+                diffuseColor: "#daa73f"
+                specularTint: "#d43838"
+            }
+        }
+
+        Model {
+            id: cone
+            x: -406.923
+            y: 144.113
+            source: "#Cone"
+            eulerRotation.z: -0
+            eulerRotation.y: 0
+            eulerRotation.x: -0.38666
+            scale.z: 2.4734
+            scale.y: 0.83447
+            scale.x: 3.50125
+            z: -167.60451
+            materials: coneMaterial
+            DefaultMaterial {
+                id: coneMaterial
+                diffuseColor: "#daa73f"
+            }
+        }
+
+    }
+    Text {
+        id: text1
+        color: "#ffffff"
+        text: qsTr("Rocket launch animation")
+        anchors.fill: parent
+        font.pixelSize: 30
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignTop
+        lineHeightMode: Text.ProportionalHeight
+        topPadding: 20
+        minimumPointSize: 30
+        minimumPixelSize: 30
     }
 
 
 
-}
 
+}
 /*##^##
 Designer {
-    D{i:0;autoSize:true;formeditorZoom:0.5;height:480;width:640}
+    D{i:0;autoSize:true;formeditorZoom:0.66;height:540;width:720}
 }
 ##^##*/
