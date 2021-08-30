@@ -35,7 +35,7 @@ private slots:
 private:
 
     Ui::MainWindow *ui;
-    qmlRocketWindow rocketWindow;
+    qmlRocketWindow *rocketWindow;
 
     void loadFile(QString fileType);
     void startReplot(QString fileLog);
@@ -43,6 +43,7 @@ private:
     void replotAxis(QCustomPlot *Plot, int graphNumber, QVector<double> T, QVector<double> Y, QString lineColor, bool flag);
 
     QCustomPlot *wGraphic;      // Объявляем объект QCustomPlot
+    //QCustomPlot *currentPlotTab;
     QVector<QCustomPlot> Plots;
     QCPCurve *verticalLine;     // Объявляем объект для вертикальной линии
     QCPItemTracer *tracer;      // Трасировщик по точкам графика

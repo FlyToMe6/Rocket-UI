@@ -12,6 +12,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    rocketWindow = new qmlRocketWindow;
+    //устанавливаем флаг об отсутствии данных на графиках
     flag = false;
 
 
@@ -25,7 +27,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_5_clicked()
 {
-    rocketWindow.show();
+    rocketWindow->show();
 }
 
 
@@ -163,14 +165,16 @@ void MainWindow::on_pushButton_7_clicked()
     }
     if(ui->radioButton_5->isChecked()){
         try{
+
             xMin = ui->lineEdit->text().toDouble();
             xMax = ui->lineEdit_2->text().toDouble();
             yMin = ui->lineEdit_3->text().toDouble();
             yMax = ui->lineEdit_4->text().toDouble();
 
-
-            setLines(ui->axelerationsPlot, xMin, xMax, yMin, yMax);
+            //currentPlotTab = ui->tabWidget->currentWidget()->findChild<QCustomPlot*>();
+            //setLines(currentPlotTab, xMin, xMax, yMin, yMax);
         }
+
         catch(bool error){
             QMessageBox::information(0, "info", "numbers only");
         }
