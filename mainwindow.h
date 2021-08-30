@@ -32,6 +32,10 @@ private slots:
 
     void on_pushButton_7_clicked();
 
+    void on_pushButton_6_clicked();
+
+    void on_pushButton_9_clicked();
+
 private:
 
     Ui::MainWindow *ui;
@@ -43,7 +47,7 @@ private:
     void replotAxis(QCustomPlot *Plot, int graphNumber, QVector<double> T, QVector<double> Y, QString lineColor, bool flag);
 
     QCustomPlot *wGraphic;      // Объявляем объект QCustomPlot
-    //QCustomPlot *currentPlotTab;
+    QCustomPlot *currentPlotTab;
     QVector<QCustomPlot> Plots;
     QCPCurve *verticalLine;     // Объявляем объект для вертикальной линии
     QCPItemTracer *tracer;      // Трасировщик по точкам графика

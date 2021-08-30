@@ -5,6 +5,7 @@
 #include <QMessageBox>
 #include <QFile>
 #include <QTextStream>
+#include <QString>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -13,6 +14,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     rocketWindow = new qmlRocketWindow;
+    currentPlotTab = new QCustomPlot;
     //устанавливаем флаг об отсутствии данных на графиках
     flag = false;
 
@@ -59,7 +61,6 @@ void MainWindow::on_pushButton_clicked()
 void MainWindow::on_pushButton_3_clicked()
 {
     configFilePath = QFileDialog::getOpenFileName(this, "Open config file", QDir::homePath());
-    startReplot(configFilePath);
 }
 
 void MainWindow::loadFile(QString fileType)
@@ -77,22 +78,57 @@ void MainWindow::loadFile(QString fileType)
 
 void MainWindow::startReplot(QString fileLog)
 {
+    //parser for file
+    QFile file(fileLog);
+      if(file.open(QIODevice::ReadOnly |QIODevice::Text))
+      {
+          while(!file.atEnd())
+          {
+              QString str = file.readLine();
+              QStringList lst = str.split(",");
+
+              angle_X.push_back(lst.at(0).toDouble());
+              angle_Y.push_back(lst.at(1).toDouble());
+              angle_Z.push_back(lst.at(2).toDouble());
+
+              axeleration_X.push_back(lst.at(3).toDouble());
+              axeleration_Y.push_back(lst.at(4).toDouble());
+              axeleration_Z.push_back(lst.at(5).toDouble());
+
+              speed_X.push_back(lst.at(6).toDouble());
+              speed_Y.push_back(lst.at(7).toDouble());
+              speed_Z.push_back(lst.at(8).toDouble());
+
+              control_X.push_back(lst.at(9).toDouble());
+              control_Y.push_back(lst.at(10).toDouble());
+              control_Z.push_back(lst.at(11).toDouble());
+
+              T.push_back(lst.at(13).toDouble());
+          }
+
+      }
+      else
+      {
+          qDebug()<< "don't open file";
+      }
+
+
     //parser imitator, to do: add parser
-    for(double i = 0; i < 20; i++){
-           angle_X.push_back(i+double(1+rand()%3));
-           angle_Y.push_back(i+1+double(1+rand()%3));
-           angle_Z.push_back(i-1+double(1+rand()%3));
-           T.push_back(i);
-           speed_X.push_back(i+1+double(1+rand()%3));
-           speed_Y.push_back(i-1+double(1+rand()%3));
-           speed_Z.push_back(i+double(1+rand()%3));
-           axeleration_X.push_back(i+1+double(1+rand()%3));
-           axeleration_Y.push_back(i-1+double(1+rand()%5));
-           axeleration_Z.push_back(i+double(1+rand()%3));
-           control_X.push_back(i+1+double(1+rand()%2));
-           control_Y.push_back(i-1+double(1+rand()%3));
-           control_Z.push_back(i+double(1+rand()%4));
-    }
+//    for(double i = 0; i < 20; i++){
+//           angle_X.push_back(i+double(1+rand()%3));
+//           angle_Y.push_back(i+1+double(1+rand()%3));
+//           angle_Z.push_back(i-1+double(1+rand()%3));
+//           T.push_back(i);
+//           speed_X.push_back(i+1+double(1+rand()%3));
+//           speed_Y.push_back(i-1+double(1+rand()%3));
+//           speed_Z.push_back(i+double(1+rand()%3));
+//           axeleration_X.push_back(i+1+double(1+rand()%3));
+//           axeleration_Y.push_back(i-1+double(1+rand()%5));
+//           axeleration_Z.push_back(i+double(1+rand()%3));
+//           control_X.push_back(i+1+double(1+rand()%2));
+//           control_Y.push_back(i-1+double(1+rand()%3));
+//           control_Z.push_back(i+double(1+rand()%4));
+//    }
 
     replotAxis(ui->anglesPlot, 0, T, angle_X, "red", flag);
     replotAxis(ui->anglesPlot, 1, T, angle_Y, "blue", flag);
@@ -157,12 +193,12 @@ void MainWindow::replotAxis(QCustomPlot *Plot, int graphNumber, QVector<double> 
 
 void MainWindow::on_pushButton_7_clicked()
 {
+    currentPlotTab = ui->tabWidget->currentWidget()->findChild<QCustomPlot*>();
+
     if(ui->radioButton_6->isChecked()){
-        setLines(ui->axelerationsPlot, 0, 25, 0, 20);
-        setLines(ui->anglesPlot, 0, 25, 0, 20);
-        setLines(ui->controlsPlot, 0, 25, 0, 20);
-        setLines(ui->speedsPlot, 0, 25, 0, 20);
+        setLines(currentPlotTab, 0, 25, 0, 20);
     }
+
     if(ui->radioButton_5->isChecked()){
         try{
 
@@ -171,14 +207,53 @@ void MainWindow::on_pushButton_7_clicked()
             yMin = ui->lineEdit_3->text().toDouble();
             yMax = ui->lineEdit_4->text().toDouble();
 
-            //currentPlotTab = ui->tabWidget->currentWidget()->findChild<QCustomPlot*>();
-            //setLines(currentPlotTab, xMin, xMax, yMin, yMax);
+            setLines(currentPlotTab, xMin, xMax, yMin, yMax);
         }
 
         catch(bool error){
             QMessageBox::information(0, "info", "numbers only");
         }
     }
+
+}
+
+
+void MainWindow::on_pushButton_6_clicked()
+{
+    currentPlotTab = ui->tabWidget->currentWidget()->findChild<QCustomPlot*>();
+    setLines(currentPlotTab, 0, 5, 0, 5);
+}
+
+
+void MainWindow::on_pushButton_9_clicked()
+{
+    currentPlotTab = ui->tabWidget->currentWidget()->findChild<QCustomPlot*>();
+
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Choose a filename to save under"), QString(), ui->lineEdit_6->text());
+    if(!fileName.isEmpty())
+        {
+            if(fileName.endsWith(".png", Qt::CaseInsensitive))
+            {
+                currentPlotTab->savePng(fileName);
+            }
+            else if(fileName.endsWith(".jpg", Qt::CaseInsensitive))
+            {
+                currentPlotTab->saveJpg(fileName);
+            }
+            else if(fileName.endsWith(".pdf", Qt::CaseInsensitive))
+            {
+                currentPlotTab->savePdf(fileName);
+            }
+            else if(fileName.endsWith(".bmp", Qt::CaseInsensitive))
+            {
+                currentPlotTab->saveBmp(fileName);
+            }
+            else
+            {
+                fileName += ".png";
+                currentPlotTab->savePng(fileName);
+            }
+        }
 
 }
 
