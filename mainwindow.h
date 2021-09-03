@@ -4,7 +4,9 @@
 #include <qcustomplot.h>
 #include <QVector>
 #include <QtMath>
-#include <qmlrocketwindow.h>
+#include <bluetoothdialog.h>
+#include <QBluetoothSocket>
+#include <numbersform.h>
 
 
 QT_BEGIN_NAMESPACE
@@ -18,6 +20,9 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+public slots:
+    void setBleDeviceName(QString name);
+
 
 private slots:
     void on_pushButton_5_clicked();
@@ -36,10 +41,16 @@ private slots:
 
     void on_pushButton_9_clicked();
 
+    void on_pushButton_8_clicked();
+
+    void on_pushButton_10_clicked();
+
+
 private:
 
     Ui::MainWindow *ui;
-    qmlRocketWindow *rocketWindow;
+    bluetoothDialog *bleDial;
+    numbersForm *nbForm;
 
     void loadFile(QString fileType);
     void startReplot(QString fileLog);
@@ -61,6 +72,10 @@ private:
     bool flag;
 
     double xMin, xMax, yMin, yMax;
+
     QString configFilePath, logFilePath;
+    //ble
+    QString bleDeviceName;
+    QBluetoothSocket *socket;
 };
 #endif // MAINWINDOW_H

@@ -12,13 +12,15 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    bleDial = new bluetoothDialog();
+    nbForm = new numbersForm();
 
-    rocketWindow = new qmlRocketWindow;
     currentPlotTab = new QCustomPlot;
     //устанавливаем флаг об отсутствии данных на графиках
     flag = false;
+    socket = new QBluetoothSocket(QBluetoothServiceInfo::RfcommProtocol);
 
-
+    connect(bleDial, &bluetoothDialog::sendName, this, &MainWindow::setBleDeviceName );
 }
 
 MainWindow::~MainWindow()
@@ -29,7 +31,16 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_5_clicked()
 {
-    rocketWindow->show();
+    if (bleDeviceName != nullptr)
+    {
+        static const QString serviceUuid(QStringLiteral("00001101-0000-1000-8000-00805F9B34FB"));
+        socket->connectToService(QBluetoothAddress(bleDeviceName), QBluetoothUuid(serviceUuid), QIODevice::ReadWrite);
+        socket->write("S");
+    }
+    else
+    {
+        QMessageBox::information(0, "info", "No device selected");
+    }
 }
 
 
@@ -113,22 +124,7 @@ void MainWindow::startReplot(QString fileLog)
       }
 
 
-    //parser imitator, to do: add parser
-//    for(double i = 0; i < 20; i++){
-//           angle_X.push_back(i+double(1+rand()%3));
-//           angle_Y.push_back(i+1+double(1+rand()%3));
-//           angle_Z.push_back(i-1+double(1+rand()%3));
-//           T.push_back(i);
-//           speed_X.push_back(i+1+double(1+rand()%3));
-//           speed_Y.push_back(i-1+double(1+rand()%3));
-//           speed_Z.push_back(i+double(1+rand()%3));
-//           axeleration_X.push_back(i+1+double(1+rand()%3));
-//           axeleration_Y.push_back(i-1+double(1+rand()%5));
-//           axeleration_Z.push_back(i+double(1+rand()%3));
-//           control_X.push_back(i+1+double(1+rand()%2));
-//           control_Y.push_back(i-1+double(1+rand()%3));
-//           control_Z.push_back(i+double(1+rand()%4));
-//    }
+
 
     replotAxis(ui->anglesPlot, 0, T, angle_X, "red", flag);
     replotAxis(ui->anglesPlot, 1, T, angle_Y, "blue", flag);
@@ -168,9 +164,6 @@ void MainWindow::setLines(QCustomPlot *Plot, double xmin, double xmax, double ym
 
     Plot->xAxis->setRange(xmin, xmax);
     Plot->yAxis->setRange(ymin, ymax);
-    Plot->setInteraction(QCP::iRangeZoom, true);
-    Plot->setInteraction(QCP::iRangeDrag,true);
-    Plot->setInteraction(QCP::iSelectPlottables,true);
     Plot->replot();
 
 
@@ -187,6 +180,9 @@ void MainWindow::replotAxis(QCustomPlot *Plot, int graphNumber, QVector<double> 
     Plot->graph(graphNumber)->addData(T,Y);
     Plot->graph(graphNumber)->setPen(QPen(lineColor));
     Plot->addGraph();
+    Plot->setInteraction(QCP::iRangeZoom, true);
+    Plot->setInteraction(QCP::iRangeDrag,true);
+    Plot->setInteraction(QCP::iSelectPlottables,true);
     Plot->replot();
 }
 
@@ -255,5 +251,23 @@ void MainWindow::on_pushButton_9_clicked()
             }
         }
 
+}
+
+
+void MainWindow::on_pushButton_8_clicked()
+{
+    //todo: add numbers Dialog
+    nbForm->show();
+}
+
+
+void MainWindow::on_pushButton_10_clicked()
+{
+    bleDial->show();
+}
+
+void MainWindow::setBleDeviceName(QString name)
+{
+    bleDeviceName = name;
 }
 
