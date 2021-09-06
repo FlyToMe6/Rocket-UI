@@ -7,7 +7,6 @@ bluetoothDialog::bluetoothDialog(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    //connect(ui->pushButton_2, SIGNAL(clicked()), this, SLOT(on_pushButton_2_clicked()));
     connect(agent, SIGNAL(deviceDiscovered(QBluetoothDeviceInfo)), this, SLOT(deviceDiscovered(QBluetoothDeviceInfo)));
 
     agent->start();

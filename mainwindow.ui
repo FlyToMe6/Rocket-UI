@@ -20,7 +20,6 @@ bottom: 26;
 
 background: #125175;
 border: 1px solid #000000;
-box-sizing: border-box;
 border-radius: 5px;</string>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -79,7 +78,6 @@ bottom: 42;
 
 background: #125175;
 border: 1px solid #000000;
-box-sizing: border-box;
 border-radius: 5px;</string>
            </property>
            <property name="frameShape">
@@ -300,10 +298,8 @@ color: #ffffff;</string>
                   <string notr="true">
 QPushButton{
 color: #ffffff;
-box-shadow: 0px 0px 0px 2px #9fb4f2;
 background-color: rgb(14, 63, 89);
 border: 1px solid #000000;
-box-sizing: border-box;
 border-radius: 10px;
 }
 QPushButton:hover{
@@ -343,10 +339,8 @@ background: rgb(18, 81, 117);
                   <string notr="true">
 QPushButton{
 color: #ffffff;
-box-shadow: 0px 0px 0px 2px #9fb4f2;
 background-color: rgb(14, 63, 89);
 border: 1px solid #000000;
-box-sizing: border-box;
 border-radius: 10px;
 }
 QPushButton:hover{
@@ -417,7 +411,6 @@ bottom: 26;
 
 background: #125175;
 border: 1px solid #000000;
-box-sizing: border-box;
 border-radius: 5px;</string>
            </property>
            <property name="frameShape">
@@ -516,7 +509,6 @@ color: #FFFFFF;
                <string notr="true">QTabWidget::pane{
 background: #051036;
 border: 1px solid #051036;
-box-sizing: border-box;
 border-radius: 5px;
 }
 QTabBar::tab{
@@ -524,7 +516,6 @@ width: 120px;
 height: 40px;
 font-size: 18px;
 border: 1px solid #051036;
-box-sizing: border-box;
 border-radius: 1px;
 color: rgb(255, 255, 255);
 background: #125175;
@@ -535,7 +526,7 @@ background: #040f34;
 }</string>
               </property>
               <property name="currentIndex">
-               <number>1</number>
+               <number>3</number>
               </property>
               <widget class="QWidget" name="tab">
                <property name="styleSheet">
@@ -635,7 +626,6 @@ top: 24;
 
 background: #125175;
 border: 1px solid #000000;
-box-sizing: border-box;
 border-radius: 5px;</string>
            </property>
            <property name="frameShape">
@@ -1174,7 +1164,23 @@ color: rgb(229, 229, 229);</string>
                   <enum>Qt::LeftToRight</enum>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">border: one;</string>
+                  <string notr="true">QFrame{border: one;}
+
+
+QPushButton{
+color: #ffffff;
+background-color: rgb(14, 63, 89);
+border: 1px solid #000000;
+border-radius: 10px;
+}
+QPushButton:hover{
+background: #0E3C56;
+
+}
+QPushButton:pressed{
+background: rgb(18, 81, 117);
+}
+</string>
                  </property>
                  <property name="frameShape">
                   <enum>QFrame::StyledPanel</enum>
@@ -1202,25 +1208,6 @@ color: rgb(229, 229, 229);</string>
                       <pointsize>12</pointsize>
                      </font>
                     </property>
-                    <property name="styleSheet">
-                     <string notr="true">
-QPushButton{
-color: #ffffff;
-box-shadow: 0px 0px 0px 2px #9fb4f2;
-background-color: rgb(14, 63, 89);
-border: 1px solid #000000;
-box-sizing: border-box;
-border-radius: 10px;
-}
-QPushButton:hover{
-background: #0E3C56;
-
-}
-QPushButton:pressed{
-background: rgb(18, 81, 117);
-}
-</string>
-                    </property>
                     <property name="text">
                      <string>Поменять оси</string>
                     </property>
@@ -1245,25 +1232,6 @@ background: rgb(18, 81, 117);
                       <pointsize>12</pointsize>
                      </font>
                     </property>
-                    <property name="styleSheet">
-                     <string notr="true">
-QPushButton{
-color: #ffffff;
-box-shadow: 0px 0px 0px 2px #9fb4f2;
-background-color: rgb(14, 63, 89);
-border: 1px solid #000000;
-box-sizing: border-box;
-border-radius: 10px;
-}
-QPushButton:hover{
-background: #0E3C56;
-
-}
-QPushButton:pressed{
-background: rgb(18, 81, 117);
-}
-</string>
-                    </property>
                     <property name="text">
                      <string>Сбросить</string>
                     </property>
@@ -1284,7 +1252,22 @@ background: rgb(18, 81, 117);
       <item>
        <widget class="QFrame" name="frame_3">
         <property name="styleSheet">
-         <string notr="true">border: none;</string>
+         <string notr="true">QFrame{
+border: none;
+}
+QPushButton{
+color: #ffffff;
+background-color: rgb(14, 63, 89);
+border: 1px solid #000000;
+border-radius: 10px;
+}
+QPushButton:hover{
+background: #0E3C56;
+
+}
+QPushButton:pressed{
+background: rgb(18, 81, 117);
+}</string>
         </property>
         <property name="frameShape">
          <enum>QFrame::StyledPanel</enum>
@@ -1384,10 +1367,8 @@ font-size: 42px;
 line-height: 52px;
 text-align: center;
 color: #ffffff;
-box-shadow: 0px 0px 0px 2px #AA2121;
 background-color: rgb(170, 5, 5);
 border: 1px solid #000000;
-box-sizing: border-box;
 border-radius: 75;
 }
 QPushButton:hover{
@@ -1415,7 +1396,24 @@ background: #AA2121;
                </font>
               </property>
               <property name="styleSheet">
-               <string notr="true">border: none;</string>
+               <string notr="true">QFrame{
+border: none; 
+}
+QPushButton{
+margin-left: 5;
+color: #ffffff;
+background-color: rgb(14, 63, 89);
+border: 1px solid #000000;
+border-radius: 10px;
+}
+QPushButton:hover{
+background: #0E3C56;
+
+}
+QPushButton:pressed{
+background: rgb(18, 81, 117);
+}
+</string>
               </property>
               <property name="frameShape">
                <enum>QFrame::StyledPanel</enum>
@@ -1437,26 +1435,6 @@ background: #AA2121;
                    <pointsize>12</pointsize>
                   </font>
                  </property>
-                 <property name="styleSheet">
-                  <string notr="true">
-QPushButton{
-margin-right: 5;
-color: #ffffff;
-box-shadow: 0px 0px 0px 2px #9fb4f2;
-background-color: rgb(14, 63, 89);
-border: 1px solid #000000;
-box-sizing: border-box;
-border-radius: 10px;
-}
-QPushButton:hover{
-background: #0E3C56;
-
-}
-QPushButton:pressed{
-background: rgb(18, 81, 117);
-}
-</string>
-                 </property>
                  <property name="text">
                   <string>Загрузить
 конфиг</string>
@@ -1477,24 +1455,7 @@ background: rgb(18, 81, 117);
                   </font>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">
-QPushButton{
-margin-left: 5;
-color: #ffffff;
-box-shadow: 0px 0px 0px 2px #9fb4f2;
-background-color: rgb(14, 63, 89);
-border: 1px solid #000000;
-box-sizing: border-box;
-border-radius: 10px;
-}
-QPushButton:hover{
-background: #0E3C56;
-
-}
-QPushButton:pressed{
-background: rgb(18, 81, 117);
-}
-</string>
+                  <string notr="true"/>
                  </property>
                  <property name="text">
                   <string>Выбрать
@@ -1527,11 +1488,11 @@ background: rgb(18, 81, 117);
            </property>
            <property name="styleSheet">
             <string notr="true">
-
 background: #125175;
 border: 1px solid #000000;
-box-sizing: border-box;
-border-radius: 5px;</string>
+border-radius: 5px;
+
+</string>
            </property>
            <property name="frameShape">
             <enum>QFrame::StyledPanel</enum>
@@ -1564,7 +1525,21 @@ border-radius: 5px;</string>
                </size>
               </property>
               <property name="styleSheet">
-               <string notr="true">border: one;</string>
+               <string notr="true">QFrame{border: one;}
+
+QPushButton{
+color: #ffffff;
+background-color: rgb(14, 63, 89);
+border: 1px solid #000000;
+border-radius: 10px;
+}
+QPushButton:hover{
+background: #0E3C56;
+
+}
+QPushButton:pressed{
+background: rgb(18, 81, 117);
+}</string>
               </property>
               <property name="frameShape">
                <enum>QFrame::StyledPanel</enum>
@@ -1585,6 +1560,15 @@ border-radius: 5px;</string>
                   <enum>QFrame::Raised</enum>
                  </property>
                  <layout class="QHBoxLayout" name="horizontalLayout_11">
+                  <property name="spacing">
+                   <number>11</number>
+                  </property>
+                  <property name="leftMargin">
+                   <number>0</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>0</number>
+                  </property>
                   <item>
                    <widget class="QPushButton" name="pushButton_10">
                     <property name="minimumSize">
@@ -1603,25 +1587,6 @@ border-radius: 5px;</string>
                      <font>
                       <pointsize>11</pointsize>
                      </font>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">
-QPushButton{
-color: #ffffff;
-box-shadow: 0px 0px 0px 2px #9fb4f2;
-background-color: rgb(14, 63, 89);
-border: 1px solid #000000;
-box-sizing: border-box;
-border-radius: 10px;
-}
-QPushButton:hover{
-background: #0E3C56;
-
-}
-QPushButton:pressed{
-background: rgb(18, 81, 117);
-}
-</string>
                     </property>
                     <property name="text">
                      <string>Выбрать
@@ -1648,25 +1613,6 @@ background: rgb(18, 81, 117);
                       <pointsize>11</pointsize>
                      </font>
                     </property>
-                    <property name="styleSheet">
-                     <string notr="true">
-QPushButton{
-color: #ffffff;
-box-shadow: 0px 0px 0px 2px #9fb4f2;
-background-color: rgb(14, 63, 89);
-border: 1px solid #000000;
-box-sizing: border-box;
-border-radius: 10px;
-}
-QPushButton:hover{
-background: #0E3C56;
-
-}
-QPushButton:pressed{
-background: rgb(18, 81, 117);
-}
-</string>
-                    </property>
                     <property name="text">
                      <string>Доп. функции</string>
                     </property>
@@ -1677,6 +1623,9 @@ background: rgb(18, 81, 117);
                </item>
                <item>
                 <widget class="QFrame" name="frame_31">
+                 <property name="styleSheet">
+                  <string notr="true"/>
+                 </property>
                  <property name="frameShape">
                   <enum>QFrame::StyledPanel</enum>
                  </property>
@@ -1694,39 +1643,20 @@ background: rgb(18, 81, 117);
                    <number>0</number>
                   </property>
                   <item>
-                   <widget class="QLineEdit" name="lineEdit_6">
+                   <widget class="QPushButton" name="pushButton_11">
                     <property name="minimumSize">
                      <size>
-                      <width>100</width>
-                      <height>40</height>
-                     </size>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>120</width>
-                      <height>50</height>
+                      <width>157</width>
+                      <height>56</height>
                      </size>
                     </property>
                     <property name="font">
                      <font>
-                      <pointsize>14</pointsize>
+                      <pointsize>11</pointsize>
                      </font>
                     </property>
-                    <property name="styleSheet">
-                     <string notr="true">background-color: rgb(255, 255, 255);
-color: rgb(0, 0, 0);</string>
-                    </property>
-                    <property name="inputMethodHints">
-                     <set>Qt::ImhFormattedNumbersOnly|Qt::ImhNoTextHandles|Qt::ImhPreferNumbers</set>
-                    </property>
-                    <property name="inputMask">
-                     <string/>
-                    </property>
                     <property name="text">
-                     <string>.png</string>
-                    </property>
-                    <property name="placeholderText">
-                     <string>Формат</string>
+                     <string>Подключиться</string>
                     </property>
                    </widget>
                   </item>
@@ -1750,23 +1680,7 @@ color: rgb(0, 0, 0);</string>
                      </font>
                     </property>
                     <property name="styleSheet">
-                     <string notr="true">
-QPushButton{
-color: #ffffff;
-box-shadow: 0px 0px 0px 2px #9fb4f2;
-background-color: rgb(14, 63, 89);
-border: 1px solid #000000;
-box-sizing: border-box;
-border-radius: 10px;
-}
-QPushButton:hover{
-background: #0E3C56;
-
-}
-QPushButton:pressed{
-background: rgb(18, 81, 117);
-}
-</string>
+                     <string notr="true"/>
                     </property>
                     <property name="text">
                      <string>Скачать график</string>

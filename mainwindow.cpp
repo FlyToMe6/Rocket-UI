@@ -16,11 +16,12 @@ MainWindow::MainWindow(QWidget *parent)
     nbForm = new numbersForm();
 
     currentPlotTab = new QCustomPlot;
-    //устанавливаем флаг об отсутствии данных на графиках
+    //set flag about the absence of data on the charts
     flag = false;
-    socket = new QBluetoothSocket(QBluetoothServiceInfo::RfcommProtocol);
 
+    socket = new QBluetoothSocket(QBluetoothServiceInfo::RfcommProtocol);
     connect(bleDial, &bluetoothDialog::sendName, this, &MainWindow::setBleDeviceName );
+    connect(nbForm, &numbersForm::sendCommand, this, &MainWindow::sendMSG );
 }
 
 MainWindow::~MainWindow()
@@ -33,9 +34,7 @@ void MainWindow::on_pushButton_5_clicked()
 {
     if (bleDeviceName != nullptr)
     {
-        static const QString serviceUuid(QStringLiteral("00001101-0000-1000-8000-00805F9B34FB"));
-        socket->connectToService(QBluetoothAddress(bleDeviceName), QBluetoothUuid(serviceUuid), QIODevice::ReadWrite);
-        socket->write("S");
+        sendMSG("S");
     }
     else
     {
@@ -89,7 +88,7 @@ void MainWindow::loadFile(QString fileType)
 
 void MainWindow::startReplot(QString fileLog)
 {
-    //parser for file
+    //parser for log file
     QFile file(fileLog);
       if(file.open(QIODevice::ReadOnly |QIODevice::Text))
       {
@@ -225,7 +224,8 @@ void MainWindow::on_pushButton_9_clicked()
 {
     currentPlotTab = ui->tabWidget->currentWidget()->findChild<QCustomPlot*>();
 
-    QString fileName = QFileDialog::getSaveFileName(this, tr("Choose a filename to save under"), QString(), ui->lineEdit_6->text());
+    QString fileName = QFileDialog::getSaveFileName(this, tr("Choose a filename to save under"), QString(),
+                                                    tr("PNG(*.png);;JPG(*.jpg);;PDF(*.pdf);;BMP(*.bmp);;All Files(*)"));
     if(!fileName.isEmpty())
         {
             if(fileName.endsWith(".png", Qt::CaseInsensitive))
@@ -256,7 +256,6 @@ void MainWindow::on_pushButton_9_clicked()
 
 void MainWindow::on_pushButton_8_clicked()
 {
-    //todo: add numbers Dialog
     nbForm->show();
 }
 
@@ -269,5 +268,24 @@ void MainWindow::on_pushButton_10_clicked()
 void MainWindow::setBleDeviceName(QString name)
 {
     bleDeviceName = name;
+}
+
+void MainWindow::sendMSG(const char *msg)
+{
+    socket->write(msg);
+}
+
+
+void MainWindow::on_pushButton_11_clicked()
+{
+    if (bleDeviceName != nullptr)
+    {
+        static const QString serviceUuid(QStringLiteral("00001101-0000-1000-8000-00805F9B34FB"));
+        socket->connectToService(QBluetoothAddress(bleDeviceName), QBluetoothUuid(serviceUuid), QIODevice::ReadWrite);
+    }
+    else
+    {
+        QMessageBox::information(0, "info", "No device selected");
+    }
 }
 
