@@ -9,6 +9,7 @@
 #include <numbersform.h>
 
 
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -24,6 +25,8 @@ public slots:
     void setBleDeviceName(QString name);
 
     void sendMSG(const char* msg);
+
+    void readMessage();
 
 
 private slots:
@@ -81,5 +84,6 @@ private:
     //ble
     QString bleDeviceName;
     QBluetoothSocket *socket;
+    QByteArray line = {};
 };
 #endif // MAINWINDOW_H

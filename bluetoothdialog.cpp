@@ -35,7 +35,6 @@ void bluetoothDialog::on_pushButton_2_clicked()
 void bluetoothDialog::on_listWidget_itemClicked(QListWidgetItem *item)
 {
     string = item->text();
-    ui->listWidget->addItem(string);
 }
 
 void bluetoothDialog::deviceDiscovered(const QBluetoothDeviceInfo &device)

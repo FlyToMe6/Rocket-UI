@@ -14,17 +14,21 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">left: 90;
+   <string notr="true">.QMainWindow{
+left: 90;
 top: 24;
 bottom: 26;
 
 background: #125175;
 border: 1px solid #000000;
-border-radius: 5px;</string>
+border-radius: 5px;
+}</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(5, 16, 54);</string>
+    <string notr="true">background-color: rgb(5, 16, 54);
+
+</string>
    </property>
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
@@ -252,8 +256,10 @@ color: rgb(229, 229, 229);</string>
                   </size>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">background-color: #0263BC;
-color: #ffffff;</string>
+                  <string notr="true">QTextBrowser{
+background-color: #0263BC;
+color: #ffffff;
+}</string>
                  </property>
                 </widget>
                </item>
@@ -1708,7 +1714,19 @@ background: rgb(18, 81, 117);
                </size>
               </property>
               <property name="styleSheet">
-               <string notr="true">background-color: rgb(2, 25, 46);</string>
+               <string notr="true">QFrame
+{
+background-color: rgb(2, 25, 46);
+}
+
+QLabel{
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 28px;
+
+color: #FFFFFF;
+}</string>
               </property>
               <property name="frameShape">
                <enum>QFrame::StyledPanel</enum>
@@ -1730,152 +1748,6 @@ background: rgb(18, 81, 117);
                 <number>20</number>
                </property>
                <item>
-                <widget class="QLabel" name="label_14">
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>80</height>
-                  </size>
-                 </property>
-                 <property name="layoutDirection">
-                  <enum>Qt::LeftToRight</enum>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QLabel{
-font-style: normal;
-font-weight: normal;
-font-size: 24px;
-line-height: 28px;
-text-align: center;
-border: none;
-color: #FFFFFF;
-}</string>
-                 </property>
-                 <property name="text">
-                  <string>Начальные значения</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QFrame" name="frame_32">
-                 <property name="styleSheet">
-                  <string notr="true">border: none;</string>
-                 </property>
-                 <property name="frameShape">
-                  <enum>QFrame::StyledPanel</enum>
-                 </property>
-                 <property name="frameShadow">
-                  <enum>QFrame::Raised</enum>
-                 </property>
-                 <layout class="QVBoxLayout" name="verticalLayout_12">
-                  <property name="topMargin">
-                   <number>0</number>
-                  </property>
-                  <item>
-                   <widget class="QLabel" name="label_8">
-                    <property name="styleSheet">
-                     <string notr="true">font-style: normal;
-font-weight: normal;
-font-size: 18px;
-line-height: 28px;
-text-align: center;
-
-color: #FFFFFF;</string>
-                    </property>
-                    <property name="text">
-                     <string>Ускорение (g)</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QLabel" name="label_9">
-                    <property name="styleSheet">
-                     <string notr="true">font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 40px;
-line-height: 56px;
-text-align: center;
-
-color: #BB1010;
-</string>
-                    </property>
-                    <property name="text">
-                     <string>0.000000</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-               <item>
-                <widget class="QFrame" name="frame_34">
-                 <property name="styleSheet">
-                  <string notr="true">border: none;</string>
-                 </property>
-                 <property name="frameShape">
-                  <enum>QFrame::StyledPanel</enum>
-                 </property>
-                 <property name="frameShadow">
-                  <enum>QFrame::Raised</enum>
-                 </property>
-                 <layout class="QVBoxLayout" name="verticalLayout_14">
-                  <property name="topMargin">
-                   <number>0</number>
-                  </property>
-                  <item>
-                   <widget class="QLabel" name="label_12">
-                    <property name="styleSheet">
-                     <string notr="true">font-style: normal;
-font-weight: normal;
-font-size: 18px;
-line-height: 28px;
-text-align: center;
-
-color: #FFFFFF;</string>
-                    </property>
-                    <property name="text">
-                     <string>Давление (КРа)</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QLabel" name="label_13">
-                    <property name="styleSheet">
-                     <string notr="true">font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 40px;
-line-height: 56px;
-text-align: center;
-
-color: #BB1010;
-</string>
-                    </property>
-                    <property name="text">
-                     <string>0.000000</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignCenter</set>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </widget>
-               </item>
-               <item>
                 <widget class="QFrame" name="frame_33">
                  <property name="styleSheet">
                   <string notr="true">border: none;</string>
@@ -1888,21 +1760,18 @@ color: #BB1010;
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_13">
                   <property name="topMargin">
-                   <number>0</number>
+                   <number>15</number>
                   </property>
                   <item>
-                   <widget class="QLabel" name="label_10">
+                   <widget class="QLabel" name="label_15">
                     <property name="styleSheet">
-                     <string notr="true">font-style: normal;
-font-weight: normal;
-font-size: 18px;
+                     <string notr="true">QLabel{
+font-size: 24px;
 line-height: 28px;
-text-align: center;
-
-color: #FFFFFF;</string>
+}</string>
                     </property>
                     <property name="text">
-                     <string>Высота (м)</string>
+                     <string>Приём данных bluetooth</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>
@@ -1910,23 +1779,24 @@ color: #FFFFFF;</string>
                    </widget>
                   </item>
                   <item>
-                   <widget class="QLabel" name="label_11">
+                   <widget class="QTextBrowser" name="BluetoothReadShow">
+                    <property name="maximumSize">
+                     <size>
+                      <width>16777215</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <pointsize>18</pointsize>
+                     </font>
+                    </property>
                     <property name="styleSheet">
-                     <string notr="true">font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 40px;
-line-height: 56px;
-text-align: center;
-
-color: #BB1010;
-</string>
-                    </property>
-                    <property name="text">
-                     <string>0.000000</string>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignCenter</set>
+                     <string notr="true">QTextBrowser{
+background-color: #021e36;
+color: #ffffff;
+margin: 10px;
+}</string>
                     </property>
                    </widget>
                   </item>

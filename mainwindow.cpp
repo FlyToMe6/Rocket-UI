@@ -6,6 +6,9 @@
 #include <QFile>
 #include <QTextStream>
 #include <QString>
+#include <QDebug>
+#include <QtBluetooth/qbluetoothserver.h>
+#include <QtBluetooth/qbluetoothsocket.h>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -22,6 +25,7 @@ MainWindow::MainWindow(QWidget *parent)
     socket = new QBluetoothSocket(QBluetoothServiceInfo::RfcommProtocol);
     connect(bleDial, &bluetoothDialog::sendName, this, &MainWindow::setBleDeviceName );
     connect(nbForm, &numbersForm::sendCommand, this, &MainWindow::sendMSG );
+    connect(socket, &QBluetoothSocket::readyRead, this, &MainWindow::readMessage);
 }
 
 MainWindow::~MainWindow()
@@ -275,6 +279,18 @@ void MainWindow::sendMSG(const char *msg)
     socket->write(msg);
 }
 
+void MainWindow::readMessage()
+{
+    do
+    {
+        line += socket->readLine().trimmed();
+        ui->BluetoothReadShow->setText(QString::fromUtf8(line.constData(), line.length()));
+
+    } while (socket->canReadLine());
+
+
+}
+
 
 void MainWindow::on_pushButton_11_clicked()
 {
@@ -282,6 +298,7 @@ void MainWindow::on_pushButton_11_clicked()
     {
         static const QString serviceUuid(QStringLiteral("00001101-0000-1000-8000-00805F9B34FB"));
         socket->connectToService(QBluetoothAddress(bleDeviceName), QBluetoothUuid(serviceUuid), QIODevice::ReadWrite);
+        
     }
     else
     {
