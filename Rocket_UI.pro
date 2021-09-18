@@ -34,6 +34,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 RESOURCES +=
 
 DISTFILES += \
-    interestingMoments.txt
+    iconFile.rc \
+    interestingMoments.txt \
+    rocket.ico
 
 win32:RC_FILE = iconFile.rc
