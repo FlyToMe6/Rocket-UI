@@ -6,7 +6,6 @@
 #include <QFile>
 #include <QTextStream>
 #include <QString>
-#include <QDebug>
 #include <QtBluetooth/qbluetoothserver.h>
 #include <QtBluetooth/qbluetoothsocket.h>
 
@@ -19,13 +18,18 @@ MainWindow::MainWindow(QWidget *parent)
     nbForm = new numbersForm();
 
     currentPlotTab = new QCustomPlot;
+
     //set flag about the absence of data on the charts
     flag = false;
 
     socket = new QBluetoothSocket(QBluetoothServiceInfo::RfcommProtocol);
+
     connect(bleDial, &bluetoothDialog::sendName, this, &MainWindow::setBleDeviceName );
     connect(nbForm, &numbersForm::sendCommand, this, &MainWindow::sendMSG );
     connect(socket, &QBluetoothSocket::readyRead, this, &MainWindow::readMessage);
+
+
+
 }
 
 MainWindow::~MainWindow()
@@ -121,11 +125,6 @@ void MainWindow::startReplot(QString fileLog)
           }
 
       }
-      else
-      {
-          qDebug()<< "don't open file";
-      }
-
 
 
 

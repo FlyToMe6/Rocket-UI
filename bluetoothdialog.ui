@@ -16,7 +16,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Bluetooth dialog</string>
   </property>
   <property name="styleSheet">
    <string notr="true">QDialog{

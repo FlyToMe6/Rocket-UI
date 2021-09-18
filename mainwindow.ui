@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Rocket UI</string>
   </property>
   <property name="styleSheet">
    <string notr="true">.QMainWindow{
@@ -75,14 +75,10 @@ border-radius: 5px;
             </size>
            </property>
            <property name="styleSheet">
-            <string notr="true">left: 24;
-right: 29;
-top: 24;
-bottom: 42;
-
-background: #125175;
+            <string notr="true">background: #125175;
 border: 1px solid #000000;
-border-radius: 5px;</string>
+border-radius: 5px;
+</string>
            </property>
            <property name="frameShape">
             <enum>QFrame::StyledPanel</enum>
@@ -246,7 +242,7 @@ color: rgb(229, 229, 229);</string>
                  <property name="minimumSize">
                   <size>
                    <width>345</width>
-                   <height>600</height>
+                   <height>200</height>
                   </size>
                  </property>
                  <property name="maximumSize">
@@ -1821,7 +1817,7 @@ margin: 10px;
   <customwidget>
    <class>QCustomPlot</class>
    <extends>QWidget</extends>
-   <header location="global">qcustomplot.h</header>
+   <header>qcustomplot.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

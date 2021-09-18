@@ -4,8 +4,10 @@
 #include <qcustomplot.h>
 #include <QVector>
 #include <QtMath>
-#include <bluetoothdialog.h>
 #include <QBluetoothSocket>
+
+//add apps windows
+#include <bluetoothdialog.h>
 #include <numbersform.h>
 
 
@@ -50,7 +52,6 @@ private slots:
 
     void on_pushButton_10_clicked();
 
-
     void on_pushButton_11_clicked();
 
 private:
@@ -64,11 +65,11 @@ private:
     void setLines(QCustomPlot *Plot, double xmin, double xmax, double ymin, double ymax);
     void replotAxis(QCustomPlot *Plot, int graphNumber, QVector<double> T, QVector<double> Y, QString lineColor, bool flag);
 
-    QCustomPlot *wGraphic;      // Объявляем объект QCustomPlot
+    QCustomPlot *wGraphic;
     QCustomPlot *currentPlotTab;
     QVector<QCustomPlot> Plots;
-    QCPCurve *verticalLine;     // Объявляем объект для вертикальной линии
-    QCPItemTracer *tracer;      // Трасировщик по точкам графика
+    QCPCurve *verticalLine;
+    QCPItemTracer *tracer;
 
     //data for plot
     QVector<double> angle_X, angle_Y, angle_Z, T;
@@ -81,7 +82,8 @@ private:
     double xMin, xMax, yMin, yMax;
 
     QString configFilePath, logFilePath;
-    //ble
+
+    //bletooth
     QString bleDeviceName;
     QBluetoothSocket *socket;
     QByteArray line = {};

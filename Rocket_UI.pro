@@ -1,4 +1,4 @@
-QT       += core gui printsupport bluetooth
+QT       += core gui printsupport bluetooth serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -35,3 +35,5 @@ RESOURCES +=
 
 DISTFILES += \
     interestingMoments.txt
+
+win32:RC_FILE = iconFile.rc

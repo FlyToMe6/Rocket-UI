@@ -1,6 +1,5 @@
 #include "numbersform.h"
 #include "ui_numbersform.h"
-#include <QDebug>
 
 numbersForm::numbersForm(QWidget *parent) :
     QWidget(parent),
